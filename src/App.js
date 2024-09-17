@@ -15,6 +15,10 @@ function App() {
   const [toDo,setToDo]=useState("");
   const [toDos,setToDos]=useState([]);
 
+  const deleteTodo = (indexToDelete) => {
+    setToDos(toDos.filter((_, index) => index !== indexToDelete));
+  };
+
   return (
     <div className="App">
       <h1>TO DO LIST</h1>
@@ -41,7 +45,7 @@ function App() {
       }
       value="Add Task" />
       </div>
-      <ToDosContainer toDos={toDos}/>
+      <ToDosContainer toDos={toDos} deleteTodo={deleteTodo}/>
       
 
     </div>

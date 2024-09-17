@@ -1,9 +1,13 @@
 import React from 'react'
 
-function ToDoContainer({todo}) {
+function ToDoContainer({index,todo,deleteTodo}) {
   return (
     <div className='toDoContainer'>
+      
         <p className='toDoText'>
+        <input type="checkbox"
+        onChange={()=>deleteTodo(index)} />
+
         {todo}
         </p>
 
