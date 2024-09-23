@@ -2,7 +2,7 @@ import React from 'react'
 import ToDoContainer from './ToDoContainer'
 
 
-function ToDosContainer({toDos,deleteTodo}) {
+function ToDosContainer({toDos,deleteTodo,toggleComplete}) {
   return (
     <div className='toDosContainer'>
      {
@@ -12,6 +12,7 @@ function ToDosContainer({toDos,deleteTodo}) {
             todo={todo}
             index={index}
             deleteTodo={deleteTodo}
+            toggleComplete={toggleComplete} 
             />
         ))
      }

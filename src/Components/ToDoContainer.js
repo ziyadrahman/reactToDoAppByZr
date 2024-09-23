@@ -1,14 +1,26 @@
 import React from 'react'
 
-function ToDoContainer({index,todo,deleteTodo}) {
+
+function ToDoContainer({index,todo,deleteTodo,
+  toggleComplete
+}) {
   return (
     <div className='toDoContainer'>
       
-        <p className='toDoText'>
-        <input type="checkbox"
-        onChange={()=>deleteTodo(index)} />
 
-        {todo}
+      {/* Apply strikethrough if todo is completed */}
+      <p style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+      <input 
+        type="checkbox" 
+        onChange={() => toggleComplete(index)} 
+        checked={todo.completed} 
+      />
+        {todo.text}
+       
+        <input type="button"
+        className="deleteBtn"
+        onClick={()=>deleteTodo(index)}
+        value="Delete Task" />
         </p>
 
     </div>

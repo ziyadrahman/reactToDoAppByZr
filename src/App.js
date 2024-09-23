@@ -18,6 +18,11 @@ function App() {
   const deleteTodo = (indexToDelete) => {
     setToDos(toDos.filter((_, index) => index !== indexToDelete));
   };
+  const toggleComplete = (index) => {
+    const newToDos = [...toDos];
+    newToDos[index].completed = !newToDos[index].completed;
+    setToDos(newToDos);
+  };
 
   return (
     <div className="App">
@@ -35,8 +40,9 @@ function App() {
 
 
       <input type='button' 
+      className='addBtn'
       onClick={()=>{
-        setToDos([toDo,...toDos]);
+        setToDos([{text:toDo,completed:false},...toDos]);
         console.log([toDo,...toDos]);
         
       }
@@ -45,7 +51,7 @@ function App() {
       }
       value="Add Task" />
       </div>
-      <ToDosContainer toDos={toDos} deleteTodo={deleteTodo}/>
+      <ToDosContainer toDos={toDos} deleteTodo={deleteTodo}  toggleComplete={toggleComplete}/>
       
 
     </div>
