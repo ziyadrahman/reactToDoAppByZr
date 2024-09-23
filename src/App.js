@@ -23,6 +23,10 @@ function App() {
     newToDos[index].completed = !newToDos[index].completed;
     setToDos(newToDos);
   };
+  const addTodo = () => {
+    const currentDateTime = new Date().toLocaleString(); // Get current date and time
+    setToDos([{ text: toDo, completed: false, date: currentDateTime }, ...toDos]);
+  };
 
   return (
     <div className="App">
@@ -41,14 +45,10 @@ function App() {
 
       <input type='button' 
       className='addBtn'
-      onClick={()=>{
-        setToDos([{text:toDo,completed:false},...toDos]);
-        console.log([toDo,...toDos]);
-        
-      }
+      onClick={addTodo}
    
         
-      }
+      
       value="Add Task" />
       </div>
       <ToDosContainer toDos={toDos} deleteTodo={deleteTodo}  toggleComplete={toggleComplete}/>

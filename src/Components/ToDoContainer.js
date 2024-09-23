@@ -9,12 +9,14 @@ function ToDoContainer({ index, todo, deleteTodo, toggleComplete }) {
           onChange={() => toggleComplete(index)} 
           checked={todo.completed} 
         />
-        <p style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-          {todo.text}
-        </p>
+        <div>
+          <p style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+            {todo.text}
+          </p>
+          <small className="dateTime">{todo.date}</small> {/* Display date below text */}
+        </div>
       </div>
 
-      {/* Delete icon from FontAwesome */}
       <i 
         className="fas fa-trash deleteIcon" 
         onClick={() => deleteTodo(index)}
