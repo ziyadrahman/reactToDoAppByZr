@@ -25,12 +25,15 @@ input[type='text'] {
   outline: none; /* Remove the outline on focus */
   padding: 10px; /* Add some padding */
   font-weight: bold;
+
+  
 }
 .addBtn {
   border: none;
   outline: none;
+  border-radius: 5px;
   padding: 10px;
-  background-color: #007bff; /* Button color */
+  background-color: #6370F0; /* Button color */
   color: white; /* Text color */
   cursor: pointer; /* Change cursor to pointer */
    /* Make button fill the width of the div */
@@ -39,6 +42,7 @@ input[type='text'] {
 
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px;
   
 }
 .toDosContainer{
@@ -49,12 +53,27 @@ input[type='text'] {
   width: 400px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
- .toDoContainer{
+.toDoContainer {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  display: block;
-  
+  display: flex;
+  justify-content: space-between; /* Space between the text and delete icon */
+  align-items: center; /* Align vertically */
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.toDoContent {
+  display: flex;
+  align-items: center;
+}
+.toDoContent p {
+  margin-left: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  flex-grow: 1;
+  word-break: break-word;
 }
 
 .toDoText
@@ -70,4 +89,42 @@ padding: 10px;
   color: white; /* Text color */
   cursor: pointer; /* Change cursor to pointer */
    /* Make button fill the width of the div */
+}
+.deleteIcon {
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.deleteIcon:hover {
+  color: darkred;
+}
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  appearance: none; /* Hide native checkbox */
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius:2px;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+}
+
+/* Style for the checked checkbox */
+input[type="checkbox"]:checked {
+  background-color: #6370F0; /* Blue background */
+  border-color: #6370F0;
+}
+
+/* Add a checkmark */
+input[type="checkbox"]:checked::after {
+  content: '\2714'; /* Checkmark symbol */
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
