@@ -26,6 +26,13 @@ function App() {
   const addTodo = () => {
     const currentDateTime = new Date().toLocaleString(); // Get current date and time
     setToDos([{ text: toDo, completed: false, date: currentDateTime }, ...toDos]);
+    setToDo(''); // Clear input after adding task
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      addTodo(); // Trigger addTodo when Enter is pressed
+    }
   };
 
   return (
@@ -33,23 +40,26 @@ function App() {
       <h1>TO DO LIST</h1>
 
       <div className='addTaskSection'>
-      <input type='text' onChange={
-
-        (event)=> setToDo(event.target.value)
+      <input type='text'
+       value={toDo}  // Controlled input
+       onChange={(event)=> setToDo(event.target.value)}
+       onKeyDown={handleKeyDown}
       
         
-      }
+      
       
       placeholder='Add Task'/>
 
 
-      <input type='button' 
-      className='addBtn'
-      onClick={addTodo}
-   
-        
-      
-      value="Add Task" />
+  {/* Show button only when text is entered */}
+  {toDo.trim() !== "" && (
+          <input 
+            type='button' 
+            className='addBtn'
+            onClick={addTodo}
+            value="Add Task" 
+          />
+        )}
       </div>
       <ToDosContainer toDos={toDos} deleteTodo={deleteTodo}  toggleComplete={toggleComplete}/>
       
